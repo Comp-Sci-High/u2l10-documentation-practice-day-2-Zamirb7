@@ -38,10 +38,11 @@ async function fetchAPOD(url){
 const response = await fetch(url);
     const data = await response.json();
         console.log(data.url)
+        return data
 }
     
     // 2. Read the documentation for the APOD API on api.nasa.gov.
-const APODurl="https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date"
+const APODurl="https://api.nasa.gov/planetary/apod?api_key=kKkMbmE7ZD3wvTcrRndxtBrbBe89IIjYnaxpIJmp&date"
 // 3. Your query should include:
 //    - your API key
 //    - today's date (you can omit the date to get the latest photo)
@@ -88,7 +89,11 @@ fetchAPOD(APODurl)
 async function fetchNasaImage(url){
     const response= await fetch(url)
     const data = await response.json()
-console.log(data)
+console.log(data.collection.metadata)
+console.log(data.collection.items[0].data[0].title)
+console.log(data.collection.items[0].href)
+
+return data
 }
 // 2. Read the documentation for the NASA Image and Video Library API.
 // 3. Your query should include:
